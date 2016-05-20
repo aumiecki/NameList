@@ -22,6 +22,7 @@ Partial Class frmList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lblFirst = New System.Windows.Forms.Label()
         Me.tbFirst = New System.Windows.Forms.TextBox()
         Me.lblLast = New System.Windows.Forms.Label()
@@ -32,6 +33,8 @@ Partial Class frmList
         Me.lblPeople = New System.Windows.Forms.Label()
         Me.listboxNames = New System.Windows.Forms.ListBox()
         Me.btnDelete = New System.Windows.Forms.Button()
+        Me.NameError = New System.Windows.Forms.ErrorProvider(Me.components)
+        CType(Me.NameError, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblFirst
@@ -77,6 +80,7 @@ Partial Class frmList
         '
         'btnClear
         '
+        Me.btnClear.CausesValidation = False
         Me.btnClear.Location = New System.Drawing.Point(30, 361)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
@@ -86,6 +90,7 @@ Partial Class frmList
         '
         'btnExit
         '
+        Me.btnExit.CausesValidation = False
         Me.btnExit.Location = New System.Drawing.Point(376, 361)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
@@ -96,7 +101,7 @@ Partial Class frmList
         'lblPeople
         '
         Me.lblPeople.AutoSize = True
-        Me.lblPeople.Location = New System.Drawing.Point(342, 22)
+        Me.lblPeople.Location = New System.Drawing.Point(314, 24)
         Me.lblPeople.Name = "lblPeople"
         Me.lblPeople.Size = New System.Drawing.Size(52, 16)
         Me.lblPeople.TabIndex = 15
@@ -114,12 +119,17 @@ Partial Class frmList
         '
         'btnDelete
         '
+        Me.btnDelete.CausesValidation = False
         Me.btnDelete.Location = New System.Drawing.Point(212, 361)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 23)
         Me.btnDelete.TabIndex = 4
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = True
+        '
+        'NameError
+        '
+        Me.NameError.ContainerControl = Me
         '
         'frmList
         '
@@ -140,6 +150,7 @@ Partial Class frmList
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmList"
         Me.Text = "People List"
+        CType(Me.NameError, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -155,4 +166,5 @@ Partial Class frmList
     Friend WithEvents lblPeople As Label
     Friend WithEvents listboxNames As ListBox
     Friend WithEvents btnDelete As Button
+    Friend WithEvents NameError As ErrorProvider
 End Class
